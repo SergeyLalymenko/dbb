@@ -25,11 +25,11 @@ function EntryRow({ entry, isFirst, setPathConfig, fetchEntry }: PropsType) {
     function getEntryIcon() {
         switch (entry['.tag']) {
             case 'folder':
-                return <IoFolderSharp className="text-2xl text-blue-700" />;
+                return <IoFolderSharp className="text-2xl text-blue-700 shrink-0" />;
             case 'file':
-                return <FaFileAlt className="text-2xl text-blue-700" />;
+                return <FaFileAlt className="text-2xl text-blue-700 shrink-0" />;
             case 'deleted':
-                return <TiDeleteOutline className="text-2xl text-blue-700" />;
+                return <TiDeleteOutline className="text-2xl text-blue-700 shrink-0" />;
         }
     }
 
@@ -38,7 +38,7 @@ function EntryRow({ entry, isFirst, setPathConfig, fetchEntry }: PropsType) {
             case 'folder':
                 return (
                     <p
-                        className="ml-4 transition-all duration-200 hover:opacity-70 cursor-pointer"
+                        className="ml-4 mr-2 transition-all duration-200 hover:opacity-70 cursor-pointer"
                         onClick={moveToFolder}
                     >
                         {entry.name}
@@ -46,12 +46,15 @@ function EntryRow({ entry, isFirst, setPathConfig, fetchEntry }: PropsType) {
                 );
             case 'file':
                 return (
-                    <p className="ml-4 transition-all duration-200 hover:opacity-70 cursor-pointer" onClick={openFile}>
+                    <p
+                        className="ml-4 mr-2 transition-all duration-200 hover:opacity-70 cursor-pointer"
+                        onClick={openFile}
+                    >
                         {entry.name}
                     </p>
                 );
             case 'deleted':
-                return <p className="ml-4 opacity-70">{entry.name}</p>;
+                return <p className="ml-4 mr-2 opacity-70">{entry.name}</p>;
         }
     }
 

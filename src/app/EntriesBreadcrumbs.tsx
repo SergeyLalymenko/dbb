@@ -51,7 +51,7 @@ function EntriesBreadcrumbs({ pathConfig, setPathConfig }: PropsType) {
         setPathConfig(newPathConfig);
     }
 
-    return <div className="flex items-center gap-2">{renderBreadcrumbs()}</div>;
+    return <div className="flex items-center flex-wrap gap-2">{renderBreadcrumbs()}</div>;
 }
 
 export default EntriesBreadcrumbs;

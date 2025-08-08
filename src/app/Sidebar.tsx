@@ -20,7 +20,7 @@ function Sidebar({ tabConfigs, activeTabName, setActiveTabName }: PropsType) {
     }
 
     return (
-        <div className="sticky top-0 flex flex-col max-h-[100vh] min-h-[100vh] bg-zinc-600 h-full gap-4 py-4 px-4 overflow-y-auto">
+        <div className="sticky top-0 flex flex-col max-h-[100vh] min-h-[100vh] bg-zinc-600 h-full gap-4 py-4 px-4 overflow-y-auto shrink-0">
             {tabConfigs.map((tabConfig) => (
                 <IconButton
                     key={tabConfig.name}
