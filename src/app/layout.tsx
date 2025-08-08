@@ -1,8 +1,9 @@
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import './globals.css';
 import mergeClasses from '@/utils/mergeClasses';
+import { Toaster } from 'react-hot-toast';
+import './globals.css';
 
 const poppinsSans = Poppins({
     weight: ['400', '500', '600', '700'],
@@ -24,6 +25,7 @@ function RootLayout({ children }: PropsType) {
         <html lang="en">
             <body className={mergeClasses('flex flex-col min-h-screen text-gray-100', poppinsSans.variable)}>
                 {children}
+                <Toaster position="top-right" />
             </body>
         </html>
     );

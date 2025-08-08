@@ -3,10 +3,9 @@ import mergeClasses from '@/utils/mergeClasses';
 
 type PropsType = {
     children: ReactNode;
-    variant?: 'primary';
+    variant?: 'primary' | 'success' | 'delete';
     size?: 'sm' | 'md' | 'lg';
     onClick?: () => void;
-    type?: 'button' | 'submit' | 'reset';
     active?: boolean;
     disabled?: boolean;
     className?: string;
@@ -25,6 +24,18 @@ const variantStyles = {
         disabled: 'opacity-50',
         active: 'bg-blue-700',
     },
+    success: {
+        default: 'bg-green-700 text-white',
+        hover: 'hover:bg-green-600',
+        disabled: 'opacity-50',
+        active: 'bg-green-600',
+    },
+    delete: {
+        default: 'bg-red-700 text-white',
+        hover: 'hover:bg-red-600',
+        disabled: 'opacity-50',
+        active: 'bg-red-600',
+    },
 };
 
 function IconButton({
@@ -32,7 +43,6 @@ function IconButton({
     variant = 'primary',
     size = 'lg',
     onClick = () => {},
-    type = 'button',
     active = false,
     disabled = false,
     className = '',
@@ -48,12 +58,10 @@ function IconButton({
     }
 
     return (
-        <button
-            type={type}
+        <div
             onClick={onClick}
-            disabled={disabled}
             className={mergeClasses(
-                'rounded transition-colors duration-200 cursor-pointer',
+                'flex items-center rounded transition-colors duration-200 cursor-pointer',
                 sizeStyles[size],
                 getVariantStyles(),
                 disabled && 'cursor-not-allowed',
@@ -61,7 +69,7 @@ function IconButton({
             )}
         >
             {children}
-        </button>
+        </div>
     );
 }
 
